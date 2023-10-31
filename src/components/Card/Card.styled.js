@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { NavLink } from 'react-router-dom';
 
 export const BtnMoreinfo = styled.button`
   display: none;
@@ -31,6 +32,7 @@ export const Container = styled.div`
   background: #ffffff;
   box-shadow: 2px 4px 9px 0px #a68dae47;
   transition: all 0.3s ease-out;
+  overflow: hidden;
 
   &:hover ${Img} {
     height: 280px;
@@ -60,7 +62,7 @@ export const Text = styled.p`
   color: #49454f;
 `;
 
-export const Date = styled.div`
+export const DateWrp = styled.div`
   position: absolute;
   bottom: 0;
   width: 302px;
@@ -68,10 +70,22 @@ export const Date = styled.div`
   padding: 8px 16px;
   background: #ffffff;
   opacity: 0.8;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const ImgWrapper = styled.div`
   position: relative;
+`;
+
+export const Date = styled.p`
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+
+  color: #7b61ff;
 `;
 
 export const CloseBtn = styled(AiOutlineCloseCircle)`
@@ -88,4 +102,16 @@ export const CloseBtn = styled(AiOutlineCloseCircle)`
     color: #6243ff;
     scale: 1.2;
   }
+`;
+
+export const Link = styled(NavLink)`
+  text-decoration: none;
+`;
+
+export const CatListWrp = styled.div`
+  position: absolute;
+  display: flex;
+  z-index: 9;
+  gap: 12px;
+  padding: 12px;
 `;

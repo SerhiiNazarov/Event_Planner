@@ -1,4 +1,7 @@
 // import React, { useState } from 'react';
+
+import { lngsOpt } from 'utils/options';
+
 import {
   Container,
   MainName,
@@ -9,11 +12,6 @@ import {
   SearchIcon,
   Button,
 } from './Header.styled';
-
-const options = [
-  { value: 'en', label: 'EN' },
-  { value: 'ua', label: 'UA' },
-];
 
 export const Header = () => {
   // const [selectedOption, setSelectedOption] = useState(null);
@@ -33,11 +31,12 @@ export const Header = () => {
         </Form>
 
         <SelectLng
-          defaultValue={options[0]}
+          defaultValue={lngsOpt[0]}
           // onChange={setSelectedOption}
-          options={options}
+          options={lngsOpt}
           className="сustom-select-container"
           classNamePrefix="сustom-select"
+          isSearchable={false}
         />
       </Wrapper>
     </Container>

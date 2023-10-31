@@ -2,13 +2,13 @@ import { components } from 'react-select';
 import { SelectSortBy, SortByIcon } from './SortBy.styled';
 
 const options = [
-  { value: 'default', label: 'Default sort' },
-  { value: 'by name ascending', label: 'by name' },
-  { value: 'by name descending', label: 'by name' },
-  { value: 'by data ascending', label: 'by data' },
-  { value: 'by data descending', label: 'by data' },
-  { value: 'by priority ascending', label: 'by priority' },
-  { value: 'by priority descending', label: 'by priority' },
+  { value: 'Default', label: 'Default sort' },
+  { value: 'By name ascending', label: 'By name' },
+  { value: 'By name descending', label: 'By name' },
+  { value: 'By data ascending', label: 'By data' },
+  { value: 'By data descending', label: 'By data' },
+  { value: 'By priority ascending', label: 'By priority' },
+  { value: 'By priority descending', label: 'By priority' },
 ];
 
 const selectSortByInd = props => {
@@ -29,15 +29,6 @@ export const SortBy = () => {
       options={options}
       isSearchable={false}
       placeholder="Sort by"
-      // components={{
-      //   DropdownIndicator:
-      //     selectIcon === true
-      //       ? OptionIconAscending
-      //       : selectIcon === false
-      //       ? OptionIconDescending
-      //       : CustomIconSelectSortBy,
-      //   Option: OptionIcon,
-      // }}
       components={{ DropdownIndicator: selectSortByInd }}
     />
   );

@@ -1,0 +1,168 @@
+import styled from 'styled-components';
+import { DeliTimePicker } from './TimePicker.jsx';
+import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
+import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
+
+export const StyledTimePicker = styled(DeliTimePicker)`
+  .rc-time-picker-panel-input-wrap {
+  }
+
+  .rc-time-picker-clear {
+    display: none;
+  }
+
+  .rc-time-picker-panel-select {
+    width: 186px;
+    height: 250px;
+
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+      @media screen and (min-width: 320px) {
+        display: none;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transform: translateY(56px);
+      color: #7b61ff;
+      padding: 1px 46px;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+    }
+
+    li {
+      border-bottom: 2px solid #aca7c3;
+      margin-bottom: 5px;
+      box-sizing: border-box;
+
+      &:hover {
+        border-bottom: 2px solid #7b61ff;
+      }
+    }
+  }
+
+  .rc-time-picker-panel {
+  }
+
+  .rc-time-picker-panel-inner {
+    border-radius: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &::before {
+      position: absolute;
+      top: 67px;
+      left: 180px;
+      content: ':';
+      font-family: 'Poppins-SemiBold' !important;
+      font-size: 24px;
+      /* @include font(16px, 24px);
+      color: getColor('text-main'); */
+    }
+  }
+
+  .rc-time-picker-panel-combobox {
+    display: flex;
+    height: 150px;
+    border: none;
+
+    outline: none;
+    border-radius: 8px;
+
+    /* border: 1px solid red; */
+    outline: none;
+    box-shadow: none;
+  }
+
+  .rc-time-picker-panel-input-wrap {
+    display: none;
+  }
+
+  .rc-time-picker-input {
+    /* height: 156px; */
+    /* height: 256px; */
+    /* padding: 16px 22px;
+    border: 1px solid #aca7c3;
+    border-radius: 8px;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      border-color: #7b61ff;
+    } */
+    display: none;
+  }
+
+  .rc-time-picker-panel-select-option-selected {
+    color: #7b61ff;
+  }
+
+  & .rc-time-picker-clear,
+  & .rc-time-picker-clear-icon:after {
+  }
+
+  & .rc-time-picker-panel-select,
+  & .rc-time-picker-input,
+  & .rc-time-picker-panel-input {
+    color: #aca7c3;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    outline: none;
+    cursor: pointer;
+
+    /* ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    } */
+  }
+`;
+
+export const TextPicker = styled.p`
+  color: ${p => p.color};
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+`;
+
+export const PickerD = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 372px;
+  height: 56px;
+  border: 1px solid #aca7c3;
+  padding: 16px 12px;
+  border-radius: 8px;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+
+  &:hover {
+    border-color: #7b61ff;
+  }
+
+  &:hover ${TextPicker} {
+    color: #7b61ff;
+  }
+`;
+
+export const ArrowDown = styled(ChevronDown)``;
+
+export const ArrowUp = styled(ChevronUp)``;
+
+export const PickerWrapper = styled.div`
+  /* position: absolute; */
+  border: 1px solid red;
+
+  /* border-radius: 10px;
+  box-shadow: 0px 0px 14px 0px #00000012;
+  overflow: hidden;
+  background: #ffffff;
+  z-index: 99; */
+`;

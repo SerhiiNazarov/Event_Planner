@@ -25,11 +25,11 @@ export const SortByCategory = () => {
     <Container>
       <SelectCat
         placeholder="Category"
-        defaultValue="EN"
         className="сustom-select-container"
         classNamePrefix="сustom-select"
         components={{ DropdownIndicator: selectCatInd }}
         options={options}
+        isSearchable={false}
       />
     </Container>
   );

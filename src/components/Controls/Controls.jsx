@@ -14,7 +14,7 @@ export const Controls = () => {
         <SortByCategory />
         <SortBy />
         <Link to="/create">
-          <ButtonType1>
+          <ButtonType1 type="button">
             <span>
               <Plus style={{ marginRight: '16px' }} />
             </span>
