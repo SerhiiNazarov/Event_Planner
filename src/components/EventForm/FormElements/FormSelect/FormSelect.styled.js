@@ -20,6 +20,10 @@ export const SelectItem = styled(Select)`
     color: #7b61ff;
   }
 
+  .сustom-select__single-value {
+    height: 100%;
+  }
+
   .сustom-select__control {
     height: 56px;
     border: 1px solid #aca7c3;

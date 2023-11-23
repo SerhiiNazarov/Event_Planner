@@ -11,14 +11,19 @@ export const Title = styled.p`
 
 export const DetailsWrapepr = styled.div`
   width: 628px;
+
+  /* margin-right: auto;
+  margin-left: auto; */
+`;
+export const Container = styled.div`
   margin-top: 17px;
-  margin-right: auto;
-  margin-left: auto;
+  display: flex;
+  justify-content: center;
 `;
 
 export const DetailsCard = styled.div`
   width: 628px;
-  height: 492px;
+  padding-bottom: 40px;
   margin-top: 14px;
   background: #ffffff;
   border-radius: 8px;
@@ -26,8 +31,8 @@ export const DetailsCard = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 628px;
-  height: 272px;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
 `;
 

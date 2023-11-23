@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Field } from 'formik';
 
 export const Input = styled(Field)`
-  padding: 16px 12px 16px 12px;
+  padding: 16px 32px 16px 12px;
   border: 1px solid #aca7c3;
   outline: transparent;
   border-radius: 8px;
@@ -20,12 +20,13 @@ export const Input = styled(Field)`
 
   &:hover {
     border-color: #7b61ff;
+    color: #7b61ff;
   }
 `;
 
 export const Textarea = styled.textarea`
   height: 156px;
-  padding: 16px 12px 16px 12px;
+  padding: 16px 32px 16px 12px;
   border: 1px solid #aca7c3;
   outline: transparent;
   border-radius: 8px;
@@ -45,5 +46,6 @@ export const Textarea = styled.textarea`
 
   &:hover {
     border-color: #7b61ff;
+    color: #7b61ff;
   }
 `;

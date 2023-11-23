@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   PickerD,
   TextPicker,
@@ -14,17 +15,26 @@ import { ButtonType2 } from 'components/ButtonType2';
 import { formatDate, formatDateForm } from 'utils/format';
 
 export const DatePicker = ({
+  meta,
   props: { name, values, setFieldValue, setFieldTouched },
 }) => {
   const [dataValue, setDataValue] = useState('');
+
+  const { t } = useTranslation();
   const [isOpenCalendar, setIsOpenCalendar] = useState(false);
+
+  useEffect(() => {
+    if (meta.value !== '') {
+      setDataValue(meta.value);
+    }
+  }, [meta]);
 
   const calendarToggle = () => {
     setIsOpenCalendar(!isOpenCalendar);
   };
 
   const resetDate = () => {
-    setDataValue('Dateless');
+    setDataValue('');
     setIsOpenCalendar(!isOpenCalendar);
   };
 
@@ -35,7 +45,7 @@ export const DatePicker = ({
   return (
     <>
       <PickerD onClick={calendarToggle}>
-        <TextPicker color={isOpenCalendar ? '#7b61ff' : '#aca7c3'}>
+        <TextPicker color={isOpenCalendar ? '#7b61ff' : '#3F3F3F'}>
           {dataValue}
         </TextPicker>
         {isOpenCalendar ? <ArrowUp /> : <ArrowDown />}
@@ -49,9 +59,7 @@ export const DatePicker = ({
               await setFieldValue('date', formatDateForm(date));
             }}
             defaultValue={new Date()}
-            activeStartDate={new Date()}
-            // view="month"
-
+            view="month"
             locale="en-En"
             calendarType="hebrew"
             // minDate={new Date()}
@@ -61,10 +69,10 @@ export const DatePicker = ({
           />
           <BtnWrapper>
             <ButtonType2 type="button" onClick={resetDate}>
-              Dateless
+              {t('dateless')}
             </ButtonType2>
             <ButtonType1 type="button" onClick={onClose}>
-              Choose date
+              {t('choose_date')}
             </ButtonType1>
           </BtnWrapper>
         </PickerWrapper>

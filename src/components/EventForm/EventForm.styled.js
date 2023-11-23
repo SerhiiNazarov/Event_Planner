@@ -6,7 +6,7 @@ import Calendar from 'react-calendar';
 
 export const Wrapper = styled(Form)`
   width: 1200px;
-  height: 365px;
+  height: 380px;
   display: flex;
   flex-direction: column;
   gap: 20px 42px;

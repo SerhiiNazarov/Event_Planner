@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
+import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import { addEvent, editEvent } from 'redux/events/eventsSlice';
 
 import { categoryOpt, priorityOpt } from 'utils/options';
 
@@ -13,8 +19,9 @@ import { TextInput } from 'components/EventForm/FormElements/TextInput';
 import { FormSelect } from 'components/EventForm/FormElements/FormSelect';
 import { DatePicker } from 'components/EventForm/FormElements/DatePicker';
 import { StyledTimePicker } from 'components/EventForm/FormElements/TimePicker';
-
-// import moment from 'moment';
+import { PictureLoad } from 'components/EventForm/FormElements/PictureLoad';
+import { nanoid } from 'nanoid';
+import { defaultImages } from 'utils/defaultImages';
 
 // const getTimeForTimePicker = (value = new Date()) => {
 //   const date = new Date(value);
@@ -28,26 +35,13 @@ const initialValuesCreateEvent = {
   title: '',
   description: '',
   date: '',
+  alt: 'default image',
+  id: '',
   time: '',
   location: '',
   category: '',
-  picture: '',
+  file: '',
   priority: '',
-  // createAt: new Date(),
-  // updateAt: new Date(),
-};
-
-const formatDate = date => {
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-  const result =
-    day.toString().padStart(2, '0') +
-    '.' +
-    month.toString().padStart(2, '0') +
-    '.' +
-    year;
-  return result;
 };
 
 export const formatDateForm = date => {
@@ -63,45 +57,132 @@ export const formatDateForm = date => {
   return result;
 };
 
-export const EventForm = ({
-  action = 'createEvent',
-  initialValues = initialValuesCreateEvent,
-}) => {
-  // const onTitleInputChange = e => {
-  //   setTitleValue(e.currentTarget.value);
-  // };
+export const EventForm = ({ action }) => {
+  const location = useLocation();
+  const { t } = useTranslation();
 
-  // const onClose = () => {
-  //   setIsOpenCalendar(!isOpenCalendar);
-  // };
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  // const onLocationInputChange = e => {
-  //   setLocationValue(e.currentTarget.value);
-  // };
+  const categoryOpt = [
+    { value: 'All', label: `${t('all')}` },
+    { value: 'Art', label: `${t('art')}` },
+    { value: 'Music', label: `${t('music')}` },
+    { value: 'Business', label: `${t('business')}` },
+    { value: 'Conference', label: `${t('conference')}` },
+    { value: 'Workshop', label: `${t('workshop')}` },
+    { value: 'Party', label: `${t('party')}` },
+    { value: 'Sport', label: `${t('sport')}` },
+  ];
 
-  // const onPictureInputChange = e => {
-  //   setPicture(e.currentTarget.value);
-  // };
+  const priorityOpt = [
+    { value: 'High', label: `${t('high')}` },
+    { value: 'Medium', label: `${t('medium')}` },
+    { value: 'Low', label: `${t('low')}` },
+  ];
 
-  // const onDeleteInfo = setFun => {
-  //   setFun('');
-  // };
+  const chooseInitValues = () => {
+    if (action === 'createEvent') {
+      return initialValuesCreateEvent;
+    } else if (action === 'editEvent') {
+      const {
+        state: { event },
+      } = location;
 
-  const handlerSubmit = (values, { resetForm }) => {
-    //  const data = {
-    //    ...values,
-    //    ordersObj,
-    //    totalPrice: totalPrice,
-    //    shopName: 'Mac',
-    //  };
-    //  ordersData(data);
-    //  setTotalPriceObj({});
-    //  resetForm();
-    console.log(values);
+      const initialValuesEditEvent = {
+        title: event.title,
+        description: event.description,
+        file: event.file,
+        alt: event.alt,
+        id: event.id,
+        category: event.category,
+        priority: event.priority,
+        location: event.location,
+        date: event.date,
+        time: event.time,
+      };
+      return initialValuesEditEvent;
+    }
+  };
+
+  const handlerSubmit = (values, actions) => {
+    const {
+      file,
+      alt,
+      id,
+      title,
+      description,
+      category,
+      time,
+      date,
+      location,
+      priority,
+    } = values;
+
+    const idByAction = () => {
+      if (action === 'createEvent') {
+        return nanoid();
+      }
+      return id;
+    };
+
+    const fileByAction = () => {
+      if (alt === 'default image') {
+        return defaultImages.defaultImg;
+      }
+      return file;
+    };
+
+    const newEvent = (image, imageAlt) => {
+      return {
+        title,
+        description,
+        file: image,
+        alt: imageAlt,
+        id: `${idByAction()}`,
+        category,
+        priority,
+        location,
+        date,
+        time,
+      };
+    };
+
+    const submitByAction = event => {
+      if (action === 'createEvent') {
+        dispatch(addEvent(event));
+      } else {
+        dispatch(editEvent(event));
+      }
+
+      actions.setSubmitting(false);
+      actions.resetForm();
+      if (action === 'createEvent') {
+        navigate('/');
+      } else {
+        navigate('/details', { state: { event } });
+      }
+    };
+
+    if (typeof file === 'object') {
+      const fileReader = new FileReader();
+
+      fileReader.readAsDataURL(file);
+
+      fileReader.onloadend = () => {
+        const event = newEvent(fileReader.result, file.name);
+
+        submitByAction(event);
+      };
+    } else {
+      const event = newEvent(`${fileByAction()}`, alt);
+
+      submitByAction(event);
+    }
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handlerSubmit}>
+    <Formik initialValues={chooseInitValues()} onSubmit={handlerSubmit}>
       {props => {
         const { values, errors, handleChange, setFieldTouched, setFieldValue } =
           props;
@@ -109,7 +190,7 @@ export const EventForm = ({
         return (
           <Wrapper>
             <Label>
-              Title
+              {t('title')}
               <FormInput
                 name="title"
                 CustomComponent={TextInput}
@@ -119,7 +200,7 @@ export const EventForm = ({
             </Label>
 
             <Label>
-              Description
+              {t('descr')}
               <FormInput
                 name="description"
                 as="textarea"
@@ -130,29 +211,27 @@ export const EventForm = ({
             </Label>
 
             <Label>
-              Date
+              {t('date')}
               <FormInput
                 name="date"
                 CustomComponent={DatePicker}
-                // values={values}
                 setFieldValue={setFieldValue}
                 setFieldTouched={setFieldTouched}
                 handleChange={handleChange}
               />
             </Label>
             <Label>
-              Time
+              {t('time')}
               <FormInput
                 name="time"
                 CustomComponent={StyledTimePicker}
-                // values={values}
                 setFieldValue={setFieldValue}
                 setFieldTouched={setFieldTouched}
                 handleChange={handleChange}
               />
             </Label>
             <Label>
-              Location
+              {t('loc')}
               <FormInput
                 name="location"
                 CustomComponent={TextInput}
@@ -161,38 +240,41 @@ export const EventForm = ({
               />
             </Label>
             <Label>
-              Category
+              {t('category')}
               <FormInput
                 name="category"
                 CustomComponent={FormSelect}
                 setFieldValue={setFieldValue}
                 setFieldTouched={setFieldTouched}
                 options={categoryOpt}
-                // values={values.category}
               />
             </Label>
             <Label>
-              Add picture
+              {t('add_pic')}
               <FormInput
-                name="picture"
-                CustomComponent={TextInput}
+                name="file"
+                CustomComponent={PictureLoad}
                 setFieldValue={setFieldValue}
                 setFieldTouched={setFieldTouched}
+                initialValues={chooseInitValues()}
               />
             </Label>
             <Label>
-              Priority
+              {t('prior')}
               <FormInput
                 name="priority"
                 CustomComponent={FormSelect}
                 setFieldValue={setFieldValue}
                 setFieldTouched={setFieldTouched}
                 options={priorityOpt}
-                // values={values.priority}
               />
             </Label>
             <SubmitBtnWrp>
-              <ButtonType1 type="submit">Add event</ButtonType1>
+              <ButtonType1 type="submit">
+                {action === 'createEvent'
+                  ? `${t('add_new')}`
+                  : `${t('ed_event')}`}
+              </ButtonType1>
             </SubmitBtnWrp>
           </Wrapper>
         );

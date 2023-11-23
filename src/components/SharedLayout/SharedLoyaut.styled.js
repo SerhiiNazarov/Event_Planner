@@ -3,9 +3,10 @@ import mainbgx1 from 'assets/mainbgx1.png';
 
 export const Container = styled.div`
   width: 1440px;
-  min-height: 1000px;
+  height: auto;
   padding-left: 80px;
   padding-right: 80px;
+
   margin-left: auto;
   margin-right: auto;
 

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Container, SortsWrapper, Link } from './Controls.styled';
 import { SortByCategory } from 'components/SortByCategory';
 import { SortBy } from 'components/SortBy';
@@ -7,9 +8,10 @@ import { ReactComponent as Plus } from 'assets//plus.svg';
 import { Title } from 'components/PagesTitle';
 
 export const Controls = () => {
+  const { t } = useTranslation();
   return (
     <Container>
-      <Title>My events</Title>
+      <Title>{t('events')}</Title>
       <SortsWrapper>
         <SortByCategory />
         <SortBy />
@@ -18,7 +20,7 @@ export const Controls = () => {
             <span>
               <Plus style={{ marginRight: '16px' }} />
             </span>
-            Add new event
+            {t('btn_add')}
           </ButtonType1>
         </Link>
       </SortsWrapper>

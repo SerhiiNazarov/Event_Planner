@@ -1,25 +1,21 @@
 import styled from 'styled-components';
 import Select from 'react-select';
-import { ReactComponent as СategoryIcon } from 'assets/filters-3.svg';
+import { ReactComponent as СategoryIcon } from 'assets/category.svg';
 
 export const Container = styled.div`
   display: flex;
 `;
 
 export const CatIcon = styled(СategoryIcon)`
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   stroke: #3f3f3f;
 `;
 
 export const SelectCat = styled(Select)`
   z-index: 10;
-  width: 150px;
-  transition: all 0.3s ease-out;
 
-  &:hover svg {
-    fill: #7b61ff;
-  }
+  transition: all 0.3s ease-out;
 
   &:hover .сustom-select__single-value {
     color: #7b61ff;
@@ -35,8 +31,16 @@ export const SelectCat = styled(Select)`
     justify-content: center;
     border-radius: 8px;
     box-shadow: 2px 4px 9px 0px #a68dae47;
+
+    &:hover ${CatIcon} {
+      stroke: #7b61ff;
+    }
   }
   .сustom-select__control {
+    width: 150px;
+    text-align: center;
+    padding-right: 15px;
+
     border: none;
     outline: none;
     box-shadow: none;
@@ -49,12 +53,18 @@ export const SelectCat = styled(Select)`
 
   .сustom-select__placeholder {
     color: #3f3f3f;
+    text-align: center;
   }
 
   .сustom-select__menu {
-    /* padding: 16px; */
+    width: 200px;
+    padding: 16px;
   }
   .сustom-select__value-container {
+    margin: 0;
+    padding: 0;
+
+    /* width: 100%; */
     /* border: 1px solid red; */
   }
   .сustom-select__menu-notice,
@@ -70,9 +80,14 @@ export const SelectCat = styled(Select)`
 
   .сustom-select__input-container {
     color: transparent;
+    display: flex;
+    justify-content: center;
   }
 
   .сustom-select__single-value {
+    /* display: flex;
+    justify-content: center; */
+    margin: 0;
     color: #3f3f3f;
     font-weight: 500;
     font-size: 16px;
@@ -80,6 +95,8 @@ export const SelectCat = styled(Select)`
   }
   .сustom-select__input {
     /* display: none; */
+    display: flex;
+    justify-content: center;
   }
   .сustom-select__menu {
     padding: 16px 12px;

@@ -14,6 +14,7 @@ export const StyledTimePicker = styled(DeliTimePicker)`
   .rc-time-picker-panel-select {
     width: 186px;
     height: 250px;
+    border: none;
 
     box-sizing: border-box;
 
@@ -28,7 +29,7 @@ export const StyledTimePicker = styled(DeliTimePicker)`
       flex-direction: column;
       gap: 8px;
       transform: translateY(56px);
-      color: #7b61ff;
+      color: #3f3f3f;
       padding: 1px 46px;
       box-sizing: border-box;
       border: none;
@@ -36,12 +37,12 @@ export const StyledTimePicker = styled(DeliTimePicker)`
     }
 
     li {
-      border-bottom: 2px solid #aca7c3;
+      /* border-bottom: 2px solid #aca7c3; */
       margin-bottom: 5px;
       box-sizing: border-box;
 
       &:hover {
-        border-bottom: 2px solid #7b61ff;
+        /* border-bottom: 2px solid #7b61ff; */
       }
     }
   }
@@ -50,17 +51,17 @@ export const StyledTimePicker = styled(DeliTimePicker)`
   }
 
   .rc-time-picker-panel-inner {
-    border-radius: 8px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    border: none;
+    box-shadow: none;
 
     &::before {
       position: absolute;
-      top: 67px;
-      left: 180px;
+      top: 30px;
+      left: 170px;
       content: ':';
       font-family: 'Poppins-SemiBold' !important;
-      font-size: 24px;
+      font-size: 44px;
+      color: #aca7c3;
       /* @include font(16px, 24px);
       color: getColor('text-main'); */
     }
@@ -69,14 +70,10 @@ export const StyledTimePicker = styled(DeliTimePicker)`
   .rc-time-picker-panel-combobox {
     display: flex;
     height: 150px;
-    border: none;
 
     outline: none;
-    border-radius: 8px;
-
-    /* border: 1px solid red; */
-    outline: none;
-    box-shadow: none;
+    box-shadow: 2px 4px 9px 0px #a68dae47;
+    border-radius: 15px;
   }
 
   .rc-time-picker-panel-input-wrap {
@@ -117,10 +114,10 @@ export const StyledTimePicker = styled(DeliTimePicker)`
     outline: none;
     cursor: pointer;
 
-    /* ::-webkit-scrollbar {
+    ::-webkit-scrollbar {
       width: 0;
       height: 0;
-    } */
+    }
   }
 `;
 
@@ -157,12 +154,25 @@ export const ArrowDown = styled(ChevronDown)``;
 export const ArrowUp = styled(ChevronUp)``;
 
 export const PickerWrapper = styled.div`
-  /* position: absolute; */
-  border: 1px solid red;
+  position: absolute;
+  top: 90px;
 
-  /* border-radius: 10px;
-  box-shadow: 0px 0px 14px 0px #00000012;
+  width: 374px;
   overflow: hidden;
-  background: #ffffff;
-  z-index: 99; */
+  height: 250px;
+  background-color: #ffffff;
+
+  border-radius: 8px;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  z-index: 9;
+`;
+
+export const BtnWrapper = styled.div`
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  margin-top: 16px;
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
 `;

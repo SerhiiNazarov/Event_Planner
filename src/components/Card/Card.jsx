@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   Container,
   Img,
@@ -8,34 +10,43 @@ import {
   Date,
   ImgWrapper,
   BtnMoreinfo,
-  CloseBtn,
+  DeleteBtn,
   Link,
   CatListWrp,
+  IconDeleteBtn,
 } from './Card.styled';
 import { Category } from 'components/Category';
 
-export const Card = ({ event }) => {
+export const Card = ({ event, onDelete }) => {
+  const { t } = useTranslation();
+
   return (
     <Container>
-      <CloseBtn />
+      <DeleteBtn
+        type="button"
+        onClick={() => {
+          onDelete(event.id);
+        }}
+      >
+        <IconDeleteBtn />
+      </DeleteBtn>
 
       <ImgWrapper>
         <CatListWrp>
-          {/* {event.category &&
-            event.category.map(item => <Category key={item} cat={item} />)} */}
-          <Category cat={event.category} />
-          <Category cat={event.priority} />
+          <Category cat={t(`${event.category.toLowerCase()}`)} />
+          <Category cat={t(`${event.priority.toLowerCase()}`)} />
         </CatListWrp>
-        <Img src={event.imagex1} alt={event.description} />
+        <Img src={event.file} alt={event.alt} />
         <DateWrp>
-          <Date>{`${event.date} at ${event.time}`}</Date>
+          <Date>
+            {event.time ? `${event.date} at ${event.time}` : `${event.date}`}
+          </Date>
           <Date>{event.location}</Date>
         </DateWrp>
       </ImgWrapper>
-
       <Description>
         <EventName>{event.title}</EventName>
-        <Text>{event.text}</Text>
+        <Text>{event.description}</Text>
       </Description>
       <Link
         to={{
@@ -44,7 +55,7 @@ export const Card = ({ event }) => {
         state={{ event }}
         key={event.id}
       >
-        <BtnMoreinfo type="button">More info</BtnMoreinfo>
+        <BtnMoreinfo type="button"> {t('more_info')}</BtnMoreinfo>
       </Link>
     </Container>
   );

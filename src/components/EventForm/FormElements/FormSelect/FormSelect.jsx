@@ -11,14 +11,21 @@ const selectCatInd = props => {
 
 export const FormSelect = ({
   field,
+  meta,
   props: { options, name, values, placeholder, setFieldValue, setFieldTouched },
 }) => {
+  const initDefaultValue = () => {
+    const defaultValue = { value: meta.value, label: meta.value };
+    return defaultValue;
+  };
+
   return (
     <SelectItem
       {...field}
       name={name}
       className="сustom-select-container"
       classNamePrefix="сustom-select"
+      defaultValue={initDefaultValue}
       options={options}
       isSearchable={false}
       components={{ DropdownIndicator: selectCatInd }}

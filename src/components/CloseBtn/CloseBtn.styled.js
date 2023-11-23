@@ -4,7 +4,7 @@ import { MdClose } from 'react-icons/md';
 
 export const BtnClose = styled.button`
   position: absolute;
-  right: 12px;
+  right: 4px;
   background: transparent;
   border: none;
   top: 40px;

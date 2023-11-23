@@ -14,6 +14,7 @@ import img2x1 from 'assets/EventsImages/party.jpg';
 import img2x2 from 'assets/EventsImages/partyx2.jpg';
 import img5x1 from 'assets/EventsImages/office.jpg';
 import img5x2 from 'assets/EventsImages/officex2.jpg';
+import defaultImg from 'assets/EventsImages/defaultImg.jpg';
 
 export const defaultImages = {
   img1x1,
@@ -32,4 +33,5 @@ export const defaultImages = {
   img7x2,
   img8x1,
   img8x2,
+  defaultImg,
 };

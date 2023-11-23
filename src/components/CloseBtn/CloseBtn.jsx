@@ -1,8 +1,14 @@
 import { BtnClose, Icon } from './CloseBtn.styled';
 
-export const CloseBtn = ({ onClickDelete, setFun }) => {
+export const CloseBtn = ({ onClickDelete, name, deleteAlt, togglePreview }) => {
   const deleteData = () => {
-    onClickDelete(setFun);
+    onClickDelete(name, '');
+
+    if (deleteAlt) {
+      onClickDelete('alt', 'default image');
+      deleteAlt('');
+      togglePreview(true);
+    }
   };
 
   return (

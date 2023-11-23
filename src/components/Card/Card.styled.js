@@ -19,8 +19,8 @@ export const BtnMoreinfo = styled.button`
 `;
 
 export const Img = styled.img`
-  width: 302px;
-  height: 336px;
+  width: 100%;
+  height: 296px;
   transition: all 0.3s ease-out;
 `;
 
@@ -88,15 +88,20 @@ export const Date = styled.p`
   color: #7b61ff;
 `;
 
-export const CloseBtn = styled(AiOutlineCloseCircle)`
+export const DeleteBtn = styled.button`
   cursor: pointer;
-  width: 20px;
-  height: 20px;
   position: absolute;
+  background: transparent;
   right: 10px;
   top: 10px;
-  color: #7b61ff;
+  border: none;
   z-index: 2;
+`;
+
+export const IconDeleteBtn = styled(AiOutlineCloseCircle)`
+  width: 25px;
+  height: 25px;
+  color: #7b61ff;
 
   &:hover {
     color: #6243ff;

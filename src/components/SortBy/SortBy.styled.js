@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Select from 'react-select';
 import { ReactComponent as SortBy } from 'assets/sortBy.svg';
+import { ReactComponent as SortByDownIcon } from 'assets/arrow-down.svg';
+import { ReactComponent as SortByUpIcon } from 'assets/arrow-up.svg';
 
 export const SortByIcon = styled(SortBy)`
   width: 24px;
@@ -8,14 +10,25 @@ export const SortByIcon = styled(SortBy)`
   stroke: #3f3f3f;
 `;
 
+export const SortDownIcon = styled(SortByDownIcon)`
+  width: 14px;
+  height: 14px;
+  margin-left: 7px;
+  stroke: #aca7c3;
+`;
+
+export const SortUpIcon = styled(SortByUpIcon)`
+  width: 14px;
+  height: 14px;
+  margin-left: 7px;
+  stroke: #aca7c3;
+`;
+
 export const SelectSortBy = styled(Select)`
   z-index: 10;
-  width: 150px;
+  padding-right: 10px;
+  /* width: 250px; */
   transition: all 0.3s ease-out;
-
-  &:hover svg {
-    fill: #7b61ff;
-  }
 
   &:hover .сustom-select__single-value {
     color: #7b61ff;
@@ -36,6 +49,18 @@ export const SelectSortBy = styled(Select)`
     border: none;
     outline: none;
     box-shadow: none;
+
+    &:hover ${SortUpIcon} {
+      stroke: #7b61ff;
+    }
+
+    &:hover ${SortDownIcon} {
+      stroke: #7b61ff;
+    }
+
+    &:hover ${SortByIcon} {
+      stroke: #7b61ff;
+    }
   }
 
   .сustom-select__placeholder {
@@ -46,6 +71,7 @@ export const SelectSortBy = styled(Select)`
     display: none;
     padding: 0;
   }
+
   /* .сustom-select__value-container {
     color: red;
     padding: 0;
@@ -75,7 +101,9 @@ export const SelectSortBy = styled(Select)`
   } */
 
   .сustom-select__menu {
-    padding: 16px 12px;
+    width: 200px;
+
+    padding: 16px 15px;
   }
   .сustom-select__menu-list {
     background: transparent;
@@ -93,20 +121,31 @@ export const SelectSortBy = styled(Select)`
     } */
   }
   .сustom-select__option {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+
     padding: 0;
+    padding-bottom: 16px;
     color: #aca7c3;
     background: transparent;
     border-bottom: 1px solid #aca7c3;
 
     &:not(:last-child) {
-      padding-bottom: 16px;
       margin-bottom: 16px;
-      border-bottom: 1px solid #aca7c3;
     }
 
     &:hover {
       color: #7b61ff;
       border-bottom: 1px solid #7b61ff;
+    }
+
+    &:hover ${SortUpIcon} {
+      stroke: #7b61ff;
+    }
+
+    &:hover ${SortDownIcon} {
+      stroke: #7b61ff;
     }
   }
 
@@ -115,6 +154,14 @@ export const SelectSortBy = styled(Select)`
   }
   .сustom-select__option--is-selected {
     color: #7b61ff;
+
+    ${SortUpIcon} {
+      stroke: #7b61ff;
+    }
+
+    ${SortDownIcon} {
+      stroke: #7b61ff;
+    }
   }
 
   /* @media {

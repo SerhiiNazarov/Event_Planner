@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Select from 'react-select';
 import { RiSearchLine } from 'react-icons/ri';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   height: 92px;
@@ -22,14 +23,15 @@ export const MainName = styled.h1`
 `;
 
 export const SearchInput = styled.input`
+  width: 100%;
   font-family: poppins;
   font-weight: 300;
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 18px;
+  line-height: 16px;
 
   border: none;
   outline: none;
-  color: #888888;
+  color: #1c1b1f;
 `;
 
 export const SelectLng = styled(Select)`
@@ -186,4 +188,8 @@ export const Button = styled.button`
 
   cursor: pointer;
   outline: none;
+`;
+
+export const Link = styled(NavLink)`
+  text-decoration: none;
 `;

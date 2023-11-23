@@ -2,7 +2,11 @@ import { ErrorMessage } from 'formik';
 import { CloseBtn } from 'components/CloseBtn';
 import { Input, Textarea } from './TextInput.styled';
 
-export const TextInput = ({ field, props: { as, type = 'text', name } }) => {
+export const TextInput = ({
+  field,
+  meta,
+  props: { as, type = 'text', name, setFieldValue },
+}) => {
   return (
     <>
       {as !== 'textarea' ? (
@@ -10,11 +14,7 @@ export const TextInput = ({ field, props: { as, type = 'text', name } }) => {
       ) : (
         <Textarea {...field} type={type} name={name} />
       )}
-      <CloseBtn
-        type="button"
-        // onClickDelete={onDeleteInfo}
-        // setFun={setTitleValue}
-      />
+      <CloseBtn onClickDelete={setFieldValue} name={name} />
       <ErrorMessage name={name} component="span" />
     </>
   );
