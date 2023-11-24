@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { useDispatch } from 'react-redux';
 import { deleteEvent } from 'redux/events/eventsSlice';
+import { Pagination } from 'components/Pagination';
 
 import {
   getCategoryValue,
@@ -12,10 +13,14 @@ import {
   getSearchTerm,
 } from 'redux/events/eventsSelectors';
 
-import { Container } from './Card.list.styled';
+import { Container, PaginationWrapper } from './Card.list.styled';
 import { Card } from 'components/Card';
 
 export const CardList = () => {
+  const [limitItems] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemOffset, setItemOffset] = useState(0);
+
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -98,16 +103,45 @@ export const CardList = () => {
 
   const events = getFilteredAndSortedEventList();
 
+  const pageCount = Math.ceil(events.length / limitItems);
+
+  const changeItemsPerPage = () => {
+    const remainder = events.length % limitItems;
+
+    const itemsOnCurrentPage =
+      currentPage < pageCount ? limitItems : remainder || limitItems;
+
+    return itemsOnCurrentPage;
+  };
+
+  const itemsPerPage = changeItemsPerPage();
+
+  const endPageIndex = itemOffset + itemsPerPage;
+
+  const currentItems = events.slice(itemOffset, endPageIndex);
+
   const onDeleteBtn = id => {
     dispatch(deleteEvent(id));
   };
 
   return (
-    <Container>
-      {events.length === 0 && <p>{t('no_events')}</p>}
-      {events.map(event => (
-        <Card key={event.id} event={event} onDelete={onDeleteBtn} />
-      ))}
-    </Container>
+    <>
+      <Container>
+        {currentItems.length === 0 && <p>{t('no_events')}</p>}
+        {currentItems.length !== 0 &&
+          currentItems.map(event => (
+            <Card key={event.id} event={event} onDelete={onDeleteBtn} />
+          ))}
+      </Container>
+      <PaginationWrapper>
+        <Pagination
+          pageCount={pageCount}
+          setCurrentPage={setCurrentPage}
+          setItemOffset={setItemOffset}
+          itemsPerPage={itemsPerPage}
+          events={events}
+        />
+      </PaginationWrapper>
+    </>
   );
 };

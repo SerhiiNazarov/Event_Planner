@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import { Link, Arrow } from './BackLink.styled';
+import { Link } from './BackLink.styled';
+import { ReactComponent as ArrowLeft } from 'assets/arrow-left.svg';
 
 export const BackLink = () => {
   const { t } = useTranslation();
   return (
     <Link to="/">
       <span>
-        <Arrow />
+        <ArrowLeft />
       </span>
       {t('back')}
     </Link>

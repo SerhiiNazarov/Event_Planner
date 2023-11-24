@@ -11,9 +11,6 @@ export const Title = styled.p`
 
 export const DetailsWrapepr = styled.div`
   width: 628px;
-
-  /* margin-right: auto;
-  margin-left: auto; */
 `;
 export const Container = styled.div`
   margin-top: 17px;

@@ -13,9 +13,6 @@ export const BtnClose = styled.button`
 export const Icon = styled(MdClose)`
   width: 20px;
   height: 20px;
-  /* 
-  right: 12px;
-  top: 41px; */
   color: #aca7c3;
 
   &:hover {
