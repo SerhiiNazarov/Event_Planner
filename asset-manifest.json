@@ -1,13 +1,40 @@
 {
   "files": {
-    "main.css": "/Event_Planner/static/css/main.7acaea2f.css",
-    "main.js": "/Event_Planner/static/js/main.07d3183d.js",
+    "main.css": "/Event_Planner/static/css/main.9d4c658e.css",
+    "main.js": "/Event_Planner/static/js/main.3aca199b.js",
+    "static/media/mainbgx1.png": "/Event_Planner/static/media/mainbgx1.e1f3bf3d03ea71d69701.png",
+    "static/media/partyx2.jpg": "/Event_Planner/static/media/partyx2.8269a57c22b63c044e27.jpg",
+    "static/media/holex2.jpg": "/Event_Planner/static/media/holex2.3ef5976fe574549c0dfe.jpg",
+    "static/media/sportx2.jpg": "/Event_Planner/static/media/sportx2.6a0001ecbf076951b183.jpg",
+    "static/media/eventx2.jpg": "/Event_Planner/static/media/eventx2.2e53de888aff0df9caa4.jpg",
+    "static/media/dinnerx2.jpg": "/Event_Planner/static/media/dinnerx2.557310fcca40ece3bbb1.jpg",
+    "static/media/officex2.jpg": "/Event_Planner/static/media/officex2.24a2c539243a7ea13517.jpg",
+    "static/media/flowerx2.jpg": "/Event_Planner/static/media/flowerx2.97d807f755d52eef8d7a.jpg",
+    "static/media/party.jpg": "/Event_Planner/static/media/party.62bbdfbed4fe46a43e9e.jpg",
+    "static/media/cinemax2.jpg": "/Event_Planner/static/media/cinemax2.a246c1d3784cbc7a06c1.jpg",
+    "static/media/hole.jpg": "/Event_Planner/static/media/hole.d7f6414ec6d91f422769.jpg",
+    "static/media/sport.jpg": "/Event_Planner/static/media/sport.75274e6de0c0e1ab3829.jpg",
+    "static/media/dinner.jpg": "/Event_Planner/static/media/dinner.a7f27b18624c36fd0b75.jpg",
+    "static/media/event.jpg": "/Event_Planner/static/media/event.d5acdb6fee4e9b38c8aa.jpg",
+    "static/media/office.jpg": "/Event_Planner/static/media/office.26269dacb1a55751ef1f.jpg",
+    "static/media/flower.jpg": "/Event_Planner/static/media/flower.87b628b687c532e05def.jpg",
+    "static/media/cinema.jpg": "/Event_Planner/static/media/cinema.0e82e16a7e31904247b6.jpg",
     "index.html": "/Event_Planner/index.html",
-    "main.7acaea2f.css.map": "/Event_Planner/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/Event_Planner/static/js/main.07d3183d.js.map"
+    "static/media/chevron-left.svg": "/Event_Planner/static/media/chevron-left.3192475ff2c1ca08ed8809547f2a24d3.svg",
+    "static/media/chevron-right.svg": "/Event_Planner/static/media/chevron-right.7998239248412f63c8f14fea2ab35640.svg",
+    "static/media/sortBy.svg": "/Event_Planner/static/media/sortBy.d418280983055451200a4aa0c8524261.svg",
+    "static/media/arrow-left.svg": "/Event_Planner/static/media/arrow-left.790c661e63cf12d9d51b94beb7788d0a.svg",
+    "static/media/plus.svg": "/Event_Planner/static/media/plus.1b54b24decc73a8291b7d45b57376d82.svg",
+    "static/media/chevron-down.svg": "/Event_Planner/static/media/chevron-down.1c1132fc94c4de1433a620d54bc31f0a.svg",
+    "static/media/chevron-up.svg": "/Event_Planner/static/media/chevron-up.162be8093ac6ba3d6042678ee08d7384.svg",
+    "static/media/category.svg": "/Event_Planner/static/media/category.d7e2ab1cdcdfe6863128f02e71b6b27f.svg",
+    "static/media/arrow-down.svg": "/Event_Planner/static/media/arrow-down.d9468bb6ecc06ef26a5d1d6acf0e43c3.svg",
+    "static/media/arrow-up.svg": "/Event_Planner/static/media/arrow-up.ae786ec9701ca385a542889e797a1762.svg",
+    "main.9d4c658e.css.map": "/Event_Planner/static/css/main.9d4c658e.css.map",
+    "main.3aca199b.js.map": "/Event_Planner/static/js/main.3aca199b.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.9d4c658e.css",
+    "static/js/main.3aca199b.js"
   ]
 }
