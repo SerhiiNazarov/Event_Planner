@@ -4,13 +4,22 @@ import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
 import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
 import Calendar from 'react-calendar';
 
-export const Wrapper = styled(Form)`
-  width: 1200px;
-  height: 380px;
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px 42px;
   flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    height: 495px;
+    gap: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 287px;
+    gap: 20px 42px;
+  }
 `;
 
 export const TextPicker = styled.p`
@@ -25,12 +34,22 @@ export const TextPicker = styled.p`
 export const PickerD = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 372px;
+  width: 240px;
   height: 56px;
   border: 1px solid #aca7c3;
   padding: 16px 12px;
   border-radius: 8px;
   box-shadow: 2px 4px 9px 0px #a68dae47;
+
+  @media screen and (min-width: 768px) {
+    width: 308px;
+    height: 56px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 372px;
+    height: 56px;
+  }
 
   &:hover {
     border-color: #7b61ff;
@@ -51,6 +70,12 @@ export const PickerWrapper = styled.div`
   overflow: hidden;
   background: #ffffff;
   z-index: 99;
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+  }
 `;
 
 export const ReactCalendar = styled(Calendar)`
@@ -69,5 +94,7 @@ export const BtnWrapper = styled.div`
 export const SubmitBtnWrp = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 18px;
+  margin-top: 20px;
 `;
+
+export const Container = styled(Form)``;

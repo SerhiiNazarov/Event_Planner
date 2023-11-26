@@ -80,6 +80,7 @@ export const SortBy = () => {
       options={sortByOptions}
       isSearchable={false}
       placeholder={t('sort')}
+      hidden="none"
       components={{
         DropdownIndicator: selectSortByInd,
         Option: iconOption,

@@ -11,23 +11,22 @@ export const SortByIcon = styled(SortBy)`
 `;
 
 export const SortDownIcon = styled(SortByDownIcon)`
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   margin-left: 7px;
-  stroke: #aca7c3;
+  stroke: #3f3f3f;
 `;
 
 export const SortUpIcon = styled(SortByUpIcon)`
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   margin-left: 7px;
-  stroke: #aca7c3;
+  stroke: #3f3f3f;
 `;
 
 export const SelectSortBy = styled(Select)`
   z-index: 10;
-  padding-right: 10px;
-  /* width: 250px; */
+  height: 56px;
   transition: all 0.3s ease-out;
 
   &:hover .сustom-select__single-value {
@@ -46,9 +45,15 @@ export const SelectSortBy = styled(Select)`
     box-shadow: 2px 4px 9px 0px #a68dae47;
   }
   .сustom-select__control {
+    width: 54px;
     border: none;
     outline: none;
     box-shadow: none;
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+      padding-right: 0;
+    }
 
     &:hover ${SortUpIcon} {
       stroke: #7b61ff;
@@ -64,7 +69,12 @@ export const SelectSortBy = styled(Select)`
   }
 
   .сustom-select__placeholder {
+    display: none;
     color: #3f3f3f;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   }
 
   .сustom-select__indicator-separator {
@@ -72,9 +82,20 @@ export const SelectSortBy = styled(Select)`
     padding: 0;
   }
 
+  .сustom-select__indicator {
+    margin-right: 14px;
+
+    @media screen and (min-width: 768px) {
+      margin-right: 12px;
+    }
+  }
+
   /* .сustom-select__value-container {
-    color: red;
-    padding: 0;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   } */
   /* .сustom-select__menu-notice,
   .сustom-select__placeholder,
@@ -92,13 +113,16 @@ export const SelectSortBy = styled(Select)`
   }
 
   .сustom-select__single-value {
+    display: none;
     color: #3f3f3f;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   }
-  /* .сustom-select__input {
-  } */
 
   .сustom-select__menu {
     width: 200px;

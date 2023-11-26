@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const InputFile = styled.input`
-  padding: 16px 32px 16px 12px;
+  padding: 12px 32px 12px 12px;
   border: 1px solid #aca7c3;
   outline: transparent;
   border-radius: 8px;
@@ -20,14 +20,6 @@ export const InputFile = styled.input`
   &:hover {
     border-color: #7b61ff;
   }
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  font-size: 0;
-  opacity: 0;
-  cursor: pointer; */
 `;
 
 export const AltText = styled.p`
@@ -55,5 +47,25 @@ export const AltTextContainer = styled.div`
 
   &:hover ${AltText} {
     color: #7b61ff;
+  }
+`;
+
+export const ReloadBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 193px;
+  height: 44px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #7b61ff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #6243ff;
   }
 `;

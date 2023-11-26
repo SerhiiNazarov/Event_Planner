@@ -4,16 +4,18 @@ import { RiSearchLine } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
-  height: 92px;
+  height: 168px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   border-bottom: 2px solid #7b61ff;
-  background: #fefcff;
-`;
 
-export const Wrapper = styled.div`
-  display: flex;
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+    justify-content: unset;
+    height: 92px;
+  }
 `;
 
 export const MainName = styled.h1`
@@ -37,8 +39,10 @@ export const SearchInput = styled.input`
 export const SelectLng = styled(Select)`
   height: 48px;
   z-index: 10;
-  padding-left: 12px;
-  padding-right: 6px;
+
+  @media screen and (min-width: 768px) {
+    order: 3;
+  }
 
   &:hover svg {
     fill: #7b61ff;
@@ -63,9 +67,11 @@ export const SelectLng = styled(Select)`
     box-shadow: 2px 4px 9px 0px #a68dae47;
   }
   .сustom-select__control {
+    width: 73px;
     border: none;
     outline: none;
     box-shadow: none;
+    padding: 5px;
   }
 
   .сustom-select__indicator-separator {
@@ -102,7 +108,7 @@ export const SelectLng = styled(Select)`
   .сustom-select__input {
   }
   .сustom-select__menu {
-    padding: 16px 12px;
+    padding: 12px 10px;
   }
   .сustom-select__menu-list {
     background: transparent;
@@ -167,12 +173,22 @@ export const SelectLng = styled(Select)`
 `;
 
 export const Form = styled.form`
-  width: 410px;
+  width: 272px;
   height: 48px;
-  margin-right: 35px;
   display: flex;
   border-radius: 10px;
   box-shadow: 2px 4px 9px 0px #a68dae47;
+
+  @media screen and (min-width: 768px) {
+    order: 2;
+    width: 368px;
+    margin-right: 24px;
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 410px;
+  }
 `;
 
 export const SearchIcon = styled(RiSearchLine)`
@@ -192,4 +208,5 @@ export const Button = styled.button`
 
 export const Link = styled(NavLink)`
   text-decoration: none;
+  height: 33px;
 `;

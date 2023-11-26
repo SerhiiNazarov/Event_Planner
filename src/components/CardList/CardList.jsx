@@ -17,7 +17,7 @@ import { Container, PaginationWrapper } from './Card.list.styled';
 import { Card } from 'components/Card';
 
 export const CardList = () => {
-  const [limitItems] = useState(6);
+  const [limitItems] = useState(8);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemOffset, setItemOffset] = useState(0);
 

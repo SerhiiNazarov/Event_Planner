@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export const BtnMoreinfo = styled.button`
   display: none;
-  margin-left: 172px;
+  margin-left: 142px;
   width: 114px;
   color: #ffffff;
   font-size: 14px;
@@ -16,17 +16,25 @@ export const BtnMoreinfo = styled.button`
   border: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 202px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 172px;
+  }
 `;
 
 export const Img = styled.img`
   width: 100%;
-  height: 296px;
+  height: 336px;
   transition: all 0.3s ease-out;
 `;
 
 export const Container = styled.div`
   position: relative;
-  width: 302px;
+  width: 272px;
   height: 480px;
   border-radius: 12px;
   background: #ffffff;
@@ -40,6 +48,14 @@ export const Container = styled.div`
 
   &:hover ${BtnMoreinfo} {
     display: block;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 332px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 302px;
   }
 `;
 
@@ -65,7 +81,7 @@ export const Text = styled.p`
 export const DateWrp = styled.div`
   position: absolute;
   bottom: 0;
-  width: 302px;
+  width: 100%;
   height: 40px;
   padding: 8px 16px;
   background: #ffffff;

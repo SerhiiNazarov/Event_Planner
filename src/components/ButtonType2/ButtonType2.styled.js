@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Btn = styled.button`
+  height: 56px;
   cursor: pointer;
   font-family: Poppins;
   font-size: 16px;

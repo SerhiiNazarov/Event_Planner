@@ -14,6 +14,7 @@ export const CatIcon = styled(СategoryIcon)`
 
 export const SelectCat = styled(Select)`
   z-index: 10;
+  height: 56px;
 
   transition: all 0.3s ease-out;
 
@@ -37,13 +38,17 @@ export const SelectCat = styled(Select)`
     }
   }
   .сustom-select__control {
-    width: 150px;
+    width: 56px;
     text-align: center;
-    padding-right: 15px;
+    padding-right: 16px;
 
     border: none;
     outline: none;
     box-shadow: none;
+
+    @media screen and (min-width: 768px) {
+      width: 150px;
+    }
   }
 
   .сustom-select__indicator-separator {
@@ -52,26 +57,31 @@ export const SelectCat = styled(Select)`
   }
 
   .сustom-select__placeholder {
+    display: none;
     color: #3f3f3f;
     text-align: center;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   }
 
   .сustom-select__menu {
+    left: 12px;
     width: 200px;
     padding: 16px;
+
+    @media screen and (min-width: 768px) {
+      left: -20px;
+    }
   }
   .сustom-select__value-container {
     margin: 0;
     padding: 0;
-
-    /* width: 100%; */
-    /* border: 1px solid red; */
   }
   .сustom-select__menu-notice,
   .сustom-select__placeholder,
   .сustom-select__input-container {
-    /* color: red;
-    border: 1px solid red; */
   }
   /* .сustom-select__placeholder {
     border: 1px solid red;
@@ -85,13 +95,16 @@ export const SelectCat = styled(Select)`
   }
 
   .сustom-select__single-value {
-    /* display: flex;
-    justify-content: center; */
+    display: none;
     margin: 0;
     color: #3f3f3f;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   }
   .сustom-select__input {
     /* display: none; */

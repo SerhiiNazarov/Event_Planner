@@ -12,11 +12,19 @@ export const StyledTimePicker = styled(DeliTimePicker)`
   }
 
   .rc-time-picker-panel-select {
-    width: 186px;
+    width: 120px;
     height: 250px;
     border: none;
 
     box-sizing: border-box;
+
+    @media screen and (min-width: 768px) {
+      width: 157px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 186px;
+    }
 
     &::-webkit-scrollbar {
       @media screen and (min-width: 320px) {
@@ -57,13 +65,19 @@ export const StyledTimePicker = styled(DeliTimePicker)`
     &::before {
       position: absolute;
       top: 30px;
-      left: 170px;
+      left: 120px;
       content: ':';
       font-family: 'Poppins-SemiBold' !important;
       font-size: 44px;
       color: #aca7c3;
-      /* @include font(16px, 24px);
-      color: getColor('text-main'); */
+
+      @media screen and (min-width: 768px) {
+        left: 150px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        left: 170px;
+      }
     }
   }
 
@@ -133,12 +147,20 @@ export const TextPicker = styled.p`
 export const PickerD = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 372px;
+  width: 240px;
   height: 56px;
   border: 1px solid #aca7c3;
   padding: 16px 12px;
   border-radius: 8px;
   box-shadow: 2px 4px 9px 0px #a68dae47;
+
+  @media screen and (min-width: 768px) {
+    width: 309px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 372px;
+  }
 
   &:hover {
     border-color: #7b61ff;
@@ -156,8 +178,7 @@ export const ArrowUp = styled(ChevronUp)``;
 export const PickerWrapper = styled.div`
   position: absolute;
   top: 90px;
-
-  width: 374px;
+  width: 242px;
   overflow: hidden;
   height: 250px;
   background-color: #ffffff;
@@ -165,6 +186,14 @@ export const PickerWrapper = styled.div`
   border-radius: 8px;
   box-shadow: 2px 4px 9px 0px #a68dae47;
   z-index: 9;
+
+  @media screen and (min-width: 768px) {
+    width: 311px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 374px;
+  }
 `;
 
 export const BtnWrapper = styled.div`

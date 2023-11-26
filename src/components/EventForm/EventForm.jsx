@@ -7,9 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addEvent, editEvent } from 'redux/events/eventsSlice';
 
-import { categoryOpt, priorityOpt } from 'utils/options';
-
-import { Wrapper, SubmitBtnWrp } from './EventForm.styled';
+import { Wrapper, SubmitBtnWrp, Container } from './EventForm.styled';
 import 'react-calendar/dist/Calendar.css';
 
 import { Label } from 'components/Label';
@@ -22,14 +20,6 @@ import { StyledTimePicker } from 'components/EventForm/FormElements/TimePicker';
 import { PictureLoad } from 'components/EventForm/FormElements/PictureLoad';
 import { nanoid } from 'nanoid';
 import { defaultImages } from 'utils/defaultImages';
-
-// const getTimeForTimePicker = (value = new Date()) => {
-//   const date = new Date(value);
-//   const hours = date.getHours();
-//   const minutes = date.getMinutes();
-//   const result = moment().hour(hours).minute(minutes);
-//   return result;
-// };
 
 const initialValuesCreateEvent = {
   title: '',
@@ -184,91 +174,92 @@ export const EventForm = ({ action }) => {
   return (
     <Formik initialValues={chooseInitValues()} onSubmit={handlerSubmit}>
       {props => {
-        const { values, errors, handleChange, setFieldTouched, setFieldValue } =
-          props;
+        const { errors, handleChange, setFieldTouched, setFieldValue } = props;
 
         return (
-          <Wrapper>
-            <Label>
-              {t('title')}
-              <FormInput
-                name="title"
-                CustomComponent={TextInput}
-                setFieldValue={setFieldValue}
-                setFieldTouched={setFieldTouched}
-              />
-            </Label>
+          <Container>
+            <Wrapper>
+              <Label>
+                {t('title')}
+                <FormInput
+                  name="title"
+                  CustomComponent={TextInput}
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                />
+              </Label>
 
-            <Label>
-              {t('descr')}
-              <FormInput
-                name="description"
-                as="textarea"
-                CustomComponent={TextInput}
-                setFieldValue={setFieldValue}
-                setFieldTouched={setFieldTouched}
-              />
-            </Label>
+              <Label>
+                {t('descr')}
+                <FormInput
+                  name="description"
+                  as="textarea"
+                  CustomComponent={TextInput}
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                />
+              </Label>
 
-            <Label>
-              {t('date')}
-              <FormInput
-                name="date"
-                CustomComponent={DatePicker}
-                setFieldValue={setFieldValue}
-                setFieldTouched={setFieldTouched}
-                handleChange={handleChange}
-              />
-            </Label>
-            <Label>
-              {t('time')}
-              <FormInput
-                name="time"
-                CustomComponent={StyledTimePicker}
-                setFieldValue={setFieldValue}
-                setFieldTouched={setFieldTouched}
-                handleChange={handleChange}
-              />
-            </Label>
-            <Label>
-              {t('loc')}
-              <FormInput
-                name="location"
-                CustomComponent={TextInput}
-                setFieldValue={setFieldValue}
-                setFieldTouched={setFieldTouched}
-              />
-            </Label>
-            <Label>
-              {t('category')}
-              <FormInput
-                name="category"
-                CustomComponent={FormSelect}
-                setFieldValue={setFieldValue}
-                setFieldTouched={setFieldTouched}
-                options={categoryOpt}
-              />
-            </Label>
-            <Label>
-              {t('add_pic')}
-              <FormInput
-                name="file"
-                CustomComponent={PictureLoad}
-                setFieldValue={setFieldValue}
-                setFieldTouched={setFieldTouched}
-                initialValues={chooseInitValues()}
-              />
-            </Label>
-            <Label>
-              {t('prior')}
-              <FormInput
-                name="priority"
-                CustomComponent={FormSelect}
-                setFieldValue={setFieldValue}
-                setFieldTouched={setFieldTouched}
-                options={priorityOpt}
-              />
-            </Label>
+              <Label>
+                {t('date')}
+                <FormInput
+                  name="date"
+                  CustomComponent={DatePicker}
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                  handleChange={handleChange}
+                />
+              </Label>
+              <Label>
+                {t('time')}
+                <FormInput
+                  name="time"
+                  CustomComponent={StyledTimePicker}
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                  handleChange={handleChange}
+                />
+              </Label>
+              <Label>
+                {t('loc')}
+                <FormInput
+                  name="location"
+                  CustomComponent={TextInput}
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                />
+              </Label>
+              <Label>
+                {t('category')}
+                <FormInput
+                  name="category"
+                  CustomComponent={FormSelect}
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                  options={categoryOpt}
+                />
+              </Label>
+              <Label>
+                {t('add_pic')}
+                <FormInput
+                  name="file"
+                  CustomComponent={PictureLoad}
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                  initialValues={chooseInitValues()}
+                />
+              </Label>
+              <Label>
+                {t('prior')}
+                <FormInput
+                  name="priority"
+                  CustomComponent={FormSelect}
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                  options={priorityOpt}
+                />
+              </Label>
+            </Wrapper>
             <SubmitBtnWrp>
               <ButtonType1 type="submit">
                 {action === 'createEvent'
@@ -276,7 +267,7 @@ export const EventForm = ({ action }) => {
                   : `${t('ed_event')}`}
               </ButtonType1>
             </SubmitBtnWrp>
-          </Wrapper>
+          </Container>
         );
       }}
     </Formik>

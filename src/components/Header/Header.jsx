@@ -10,7 +10,6 @@ import {
   Container,
   MainName,
   SearchInput,
-  Wrapper,
   SelectLng,
   Form,
   SearchIcon,
@@ -19,7 +18,6 @@ import {
 } from './Header.styled';
 
 export const Header = () => {
-  // const [searchTerm, setSearchTerm] = useState('');
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -39,29 +37,26 @@ export const Header = () => {
         <MainName>{t('planner')}</MainName>
       </Link>
 
-      <Wrapper>
-        <Form>
-          <Button type="submit">
-            <SearchIcon />
-          </Button>
-          <SearchInput
-            // value={query}
-            type="text"
-            placeholder={t('search')}
-            onChange={handleSearch}
-          />
-        </Form>
-
-        <SelectLng
-          defaultValue={lngsOpt[0]}
-          onChange={handleChangeLanguage}
-          // onChange={setSelectedOption}
-          options={lngsOpt}
-          className="сustom-select-container"
-          classNamePrefix="сustom-select"
-          isSearchable={false}
+      <SelectLng
+        defaultValue={lngsOpt[0]}
+        onChange={handleChangeLanguage}
+        // onChange={setSelectedOption}
+        options={lngsOpt}
+        className="сustom-select-container"
+        classNamePrefix="сustom-select"
+        isSearchable={false}
+      />
+      <Form>
+        <Button type="submit">
+          <SearchIcon />
+        </Button>
+        <SearchInput
+          // value={query}
+          type="text"
+          placeholder={t('search')}
+          onChange={handleSearch}
         />
-      </Wrapper>
+      </Form>
     </Container>
   );
 };

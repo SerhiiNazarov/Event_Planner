@@ -5,7 +5,15 @@ import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
 import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
 
 export const SelectItem = styled(Select)`
-  width: 372px;
+  width: 240px;
+
+  @media screen and (min-width: 768px) {
+    width: 309px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 372px;
+  }
 
   svg {
     fill: transparent;
@@ -113,10 +121,6 @@ export const SelectItem = styled(Select)`
   .сustom-select__option--is-selected {
     color: #7b61ff;
   }
-
-  /* background-color: red; */
-  /* color: ;
-    opacity: 1;
 
   /* @media  {
     .сustom-select__single-value {

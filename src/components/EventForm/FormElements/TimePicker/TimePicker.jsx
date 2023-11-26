@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TimePicker from 'rc-time-picker';
-import moment from 'moment';
+
 import { useTranslation } from 'react-i18next';
 
 import { formatTime } from 'utils/format';

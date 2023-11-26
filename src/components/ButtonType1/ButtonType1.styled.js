@@ -5,11 +5,12 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   max-width: 193px;
+  height: 56px;
   color: #ffffff;
   font-size: 16px;
   background-color: #7b61ff;
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   border: none;
   cursor: pointer;
 

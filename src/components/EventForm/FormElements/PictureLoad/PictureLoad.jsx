@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
-import { InputFile, AltTextContainer, AltText } from './PictureLoad.styled';
+import {
+  InputFile,
+  AltTextContainer,
+  AltText,
+  ReloadBtn,
+} from './PictureLoad.styled';
 import { useTranslation } from 'react-i18next';
-import { ButtonType1 } from 'components/ButtonType1';
 import { CloseBtn } from 'components/CloseBtn';
 
 export const PictureLoad = ({
@@ -48,9 +52,9 @@ export const PictureLoad = ({
       ) : (
         <AltTextContainer>
           <AltText>{altTxt}</AltText>
-          <ButtonType1 type="button" onClick={onReload}>
+          <ReloadBtn type="button" onClick={onReload}>
             {t('reload')}
-          </ButtonType1>
+          </ReloadBtn>
         </AltTextContainer>
       )}
       <CloseBtn
