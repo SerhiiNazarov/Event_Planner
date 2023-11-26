@@ -59,31 +59,11 @@ export const SelectItem = styled(Select)`
     font-size: 16px;
     line-height: 24px;
   }
-  /* .сustom-select__single-value {
-    font-size: ;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-    color: ;
-  } */
-  /* .сustom-select__menu {
-    background-color: red;
-  } */
+
   .сustom-select__menu-list {
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
-
-    /* ::-webkit-scrollbar {
-      width: 4px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: ;
-      border-radius: 5px;
-    }
-    ::-webkit-scrollbar-track {
-      background-color: ;
-      border-radius: 5px;
-    } */
   }
 
   .сustom-select__menu {
@@ -91,13 +71,10 @@ export const SelectItem = styled(Select)`
   }
   .сustom-select__option {
     padding: 0;
-    /* padding: 8px 12px 8px 50px;
-    pad
-    font-size: ;
-    line-height: 1.5; */
+
     color: #3f3f3f;
     background: transparent;
-    /* opacity: 0.5; */
+
     &:not(:last-child) {
       padding-bottom: 16px;
       margin-bottom: 16px;
@@ -110,26 +87,10 @@ export const SelectItem = styled(Select)`
       border-bottom: 1px solid #7b61ff;
       background-color: transparent;
     }
-
-    /* &:hover,
-    &:focus {
-      background-color: ;
-      color: ;
-      opacity: 1;
-    } */
   }
   .сustom-select__option--is-selected {
     color: #7b61ff;
   }
-
-  /* @media  {
-    .сustom-select__single-value {
-      font-size: ;
-    }
-    .сustom-select__option {
-      font-size: ;
-    }
-  } */
 `;
 
 export const ArrowDown = styled(ChevronDown)``;

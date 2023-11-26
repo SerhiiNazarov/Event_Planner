@@ -12,12 +12,9 @@ import {
 import { ButtonType1 } from 'components/ButtonType1';
 import { ButtonType2 } from 'components/ButtonType2';
 
-import { formatDate, formatDateForm } from 'utils/format';
+import { formatDateForm } from 'utils/format';
 
-export const DatePicker = ({
-  meta,
-  props: { name, values, setFieldValue, setFieldTouched },
-}) => {
+export const DatePicker = ({ meta, props: { name, setFieldValue } }) => {
   const [dataValue, setDataValue] = useState('');
 
   const { t } = useTranslation();
@@ -62,10 +59,8 @@ export const DatePicker = ({
             view="month"
             locale="en-En"
             calendarType="hebrew"
-            // minDate={new Date()}
             name={name}
             showNeighboringMonth={false}
-            // showFixedNumberOfWeeks={true}
           />
           <BtnWrapper>
             <ButtonType2 type="button" onClick={resetDate}>

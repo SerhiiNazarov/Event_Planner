@@ -21,7 +21,7 @@ import { ButtonType2 } from 'components/ButtonType2';
 export const DeliTimePicker = ({
   className,
   meta,
-  props: { name, values, setFieldValue, setFieldTouched },
+  props: { setFieldValue, setFieldTouched },
 }) => {
   const [isOpenTimePicker, setIsOpenTimePicker] = useState(false);
   const [timeValue, setTimeValue] = useState('');
@@ -62,26 +62,14 @@ export const DeliTimePicker = ({
             className={className}
             popupClassName={className}
             showSecond={false}
-            // onClose={() => setIsOpenTimePicker(!isOpenTimePicker)}
             onChange={async value => {
               await setFieldValue('time', formatTime(value._d));
               setTimeValue(formatTime(value._d));
               setFieldTouched('time');
-              // setShowTimePicker(true);
-              // setIsValue(true);
             }}
-            // onClose={onClose}
-            // open={isOpenTimePicker}
-            // defaultValue="open"
-            // onChange={onChange}
-
             hideDisabledOptions
             minuteStep={1}
-            // format="hh:mm a"
-            // use12Hours
             id="time"
-
-            // value={value}
           />
           <BtnWrapper>
             <ButtonType2 type="button" onClick={resetTime}>

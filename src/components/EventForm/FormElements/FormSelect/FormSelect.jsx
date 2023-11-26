@@ -34,7 +34,6 @@ export const FormSelect = ({
         setFieldTouched(name);
       }}
       value={values}
-      //   placeholder={placeholder}
     />
   );
 };

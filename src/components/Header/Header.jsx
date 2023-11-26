@@ -40,7 +40,6 @@ export const Header = () => {
       <SelectLng
         defaultValue={lngsOpt[0]}
         onChange={handleChangeLanguage}
-        // onChange={setSelectedOption}
         options={lngsOpt}
         className="сustom-select-container"
         classNamePrefix="сustom-select"
@@ -51,7 +50,6 @@ export const Header = () => {
           <SearchIcon />
         </Button>
         <SearchInput
-          // value={query}
           type="text"
           placeholder={t('search')}
           onChange={handleSearch}

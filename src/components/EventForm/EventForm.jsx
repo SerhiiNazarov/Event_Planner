@@ -174,7 +174,7 @@ export const EventForm = ({ action }) => {
   return (
     <Formik initialValues={chooseInitValues()} onSubmit={handlerSubmit}>
       {props => {
-        const { errors, handleChange, setFieldTouched, setFieldValue } = props;
+        const { handleChange, setFieldTouched, setFieldValue } = props;
 
         return (
           <Container>
