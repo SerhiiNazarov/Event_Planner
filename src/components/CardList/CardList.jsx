@@ -122,6 +122,10 @@ export const CardList = () => {
 
   const onDeleteBtn = id => {
     dispatch(deleteEvent(id));
+
+    if (currentItems.length - 1 === 0 && events.length - 1 !== 0) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   return (

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Paginate,
   NextLabelElement,
@@ -11,10 +12,10 @@ export const Pagination = ({
   itemsPerPage,
   events,
 }) => {
+  console.log(itemsPerPage);
   const handlePageClick = event => {
     setCurrentPage(event.selected + 1);
     const newOffset = (event.selected * itemsPerPage) % events.length;
-
     setItemOffset(newOffset);
   };
 
