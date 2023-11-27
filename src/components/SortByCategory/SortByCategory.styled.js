@@ -33,6 +33,10 @@ export const SelectCat = styled(Select)`
     border-radius: 8px;
     box-shadow: 2px 4px 9px 0px #a68dae47;
 
+    &:hover {
+      box-shadow: 2px 4px 9px 0px #7b61ff;
+    }
+
     &:hover ${CatIcon} {
       stroke: #7b61ff;
     }

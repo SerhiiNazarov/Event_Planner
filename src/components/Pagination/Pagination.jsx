@@ -5,18 +5,9 @@ import {
   PreviousLabelElement,
 } from './Pagination.styled';
 
-export const Pagination = ({
-  pageCount,
-  setItemOffset,
-  setCurrentPage,
-  itemsPerPage,
-  events,
-}) => {
-  console.log(itemsPerPage);
+export const Pagination = ({ pageCount, setCurrentPage }) => {
   const handlePageClick = event => {
     setCurrentPage(event.selected + 1);
-    const newOffset = (event.selected * itemsPerPage) % events.length;
-    setItemOffset(newOffset);
   };
 
   return (

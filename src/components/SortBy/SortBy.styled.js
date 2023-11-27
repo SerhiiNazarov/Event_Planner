@@ -13,8 +13,12 @@ export const SortByIcon = styled(SortBy)`
 export const SortDownIcon = styled(SortByDownIcon)`
   width: 16px;
   height: 16px;
-  margin-left: 7px;
+  margin-right: 3px;
   stroke: #3f3f3f;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 7px;
+  }
 `;
 
 export const SortUpIcon = styled(SortByUpIcon)`
@@ -22,6 +26,10 @@ export const SortUpIcon = styled(SortByUpIcon)`
   height: 16px;
   margin-left: 7px;
   stroke: #3f3f3f;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 7px;
+  }
 `;
 
 export const SelectSortBy = styled(Select)`
@@ -43,6 +51,10 @@ export const SelectSortBy = styled(Select)`
     justify-content: center;
     border-radius: 8px;
     box-shadow: 2px 4px 9px 0px #a68dae47;
+
+    &:hover {
+      box-shadow: 2px 4px 9px 0px #7b61ff;
+    }
   }
   .сustom-select__control {
     width: 54px;

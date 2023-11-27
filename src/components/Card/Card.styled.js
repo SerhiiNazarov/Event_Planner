@@ -17,6 +17,10 @@ export const BtnMoreinfo = styled.button`
   cursor: pointer;
   transition: all 0.3s ease-out;
 
+  &:hover {
+    box-shadow: 2px 4px 9px 0px #7b61ff;
+  }
+
   @media screen and (min-width: 768px) {
     margin-left: 202px;
   }
@@ -41,6 +45,10 @@ export const Container = styled.div`
   box-shadow: 2px 4px 9px 0px #a68dae47;
   transition: all 0.3s ease-out;
   overflow: hidden;
+
+  &:hover {
+    box-shadow: 2px 4px 9px 0px #7b61ff;
+  }
 
   &:hover ${Img} {
     height: 280px;

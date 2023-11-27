@@ -25,7 +25,7 @@ export const MainName = styled.h1`
 `;
 
 export const SearchInput = styled.input`
-  width: 100%;
+  /* width: 100%; */
   font-family: poppins;
   font-weight: 300;
   font-size: 18px;
@@ -65,6 +65,10 @@ export const SelectLng = styled(Select)`
     justify-content: center;
     border-radius: 8px;
     box-shadow: 2px 4px 9px 0px #a68dae47;
+
+    &:hover {
+      box-shadow: 2px 4px 9px 0px #7b61ff;
+    }
   }
   .сustom-select__control {
     width: 73px;
@@ -135,7 +139,12 @@ export const Form = styled.form`
   height: 48px;
   display: flex;
   border-radius: 10px;
+
   box-shadow: 2px 4px 9px 0px #a68dae47;
+
+  &:hover {
+    box-shadow: 2px 4px 9px 0px #7b61ff;
+  }
 
   @media screen and (min-width: 768px) {
     order: 2;

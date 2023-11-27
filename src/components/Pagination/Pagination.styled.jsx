@@ -8,6 +8,7 @@ export const NextLabelElement = styled(Chevron_right)`
   height: 44px;
   stroke: inherit;
   fill: inherit;
+  cursor: pointer;
 `;
 
 export const PreviousLabelElement = styled(Chevron_left)`
@@ -15,6 +16,7 @@ export const PreviousLabelElement = styled(Chevron_left)`
   height: 44px;
   stroke: inherit;
   fill: inherit;
+  cursor: pointer;
 `;
 
 export const Paginate = styled(ReactPaginate)`
@@ -25,6 +27,10 @@ export const Paginate = styled(ReactPaginate)`
   margin-top: 40px;
   gap: 20px;
   box-shadow: 2px 4px 9px 0px #a68dae47;
+
+  &:hover {
+    box-shadow: 2px 4px 9px 0px #7b61ff;
+  }
 
   background-color: #ffffff;
   padding: 10px;

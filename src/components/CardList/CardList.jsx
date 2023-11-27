@@ -19,7 +19,6 @@ import { Card } from 'components/Card';
 export const CardList = () => {
   const [limitItems] = useState(8);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemOffset, setItemOffset] = useState(0);
 
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -116,6 +115,8 @@ export const CardList = () => {
 
   const itemsPerPage = changeItemsPerPage();
 
+  const itemOffset = ((currentPage - 1) * limitItems) % events.length;
+
   const endPageIndex = itemOffset + itemsPerPage;
 
   const currentItems = events.slice(itemOffset, endPageIndex);
@@ -138,13 +139,7 @@ export const CardList = () => {
           ))}
       </Container>
       <PaginationWrapper>
-        <Pagination
-          pageCount={pageCount}
-          setCurrentPage={setCurrentPage}
-          setItemOffset={setItemOffset}
-          itemsPerPage={itemsPerPage}
-          events={events}
-        />
+        <Pagination pageCount={pageCount} setCurrentPage={setCurrentPage} />
       </PaginationWrapper>
     </>
   );
